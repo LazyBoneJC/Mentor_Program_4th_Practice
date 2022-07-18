@@ -1,0 +1,44 @@
+var readline = require("readline");
+var rl = readline.createInterface({
+  input: process.stdin,
+});
+
+var lines = [];
+
+// 讀取到一行，先把這一行加進去 lines 陣列，最後再一起處理
+rl.on("line", function (line) {
+  lines.push(line);
+});
+
+// 輸入結束，開始針對 lines 做處理
+rl.on("close", function () {
+  solve(lines);
+});
+
+// 上面都不用管，只需要完成這個 function 就好，可以透過 lines[i] 拿取內容
+// 1008 幾個水桶 0714 複習
+function solve(lines) {
+  console.log(howManyBucket(Number(lines[0])));
+}
+
+function howManyBucket(num) {
+  // 20 => 2桶(4 + 16)
+  let result = 0;
+
+  // 找出邊界
+  while (num !== 0) {
+    for (let i = 0; i < num; i++) {
+      if (Math.pow(2, i) > num) {
+        num -= Math.pow(2, i - 1);
+        result++;
+        break;
+      } else if (Math.pow(2, i) === num) {
+        num -= Math.pow(2, i);
+        result++;
+        break;
+      }
+    }
+  }
+
+  return result;
+}

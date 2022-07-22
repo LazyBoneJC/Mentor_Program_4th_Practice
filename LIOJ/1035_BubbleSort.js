@@ -1,5 +1,4 @@
 var readline = require("readline");
-const { arrayBuffer } = require("stream/consumers");
 var rl = readline.createInterface({
   input: process.stdin,
 });
@@ -17,13 +16,13 @@ rl.on("close", function () {
 });
 
 // 上面都不用管，只需要完成這個 function 就好，可以透過 lines[i] 拿取內容
+// 1035 簡易排序 用 bubble sort 解（慢）
 function solve(lines) {
-  let max = Number(lines[0]);
-  let total = Number(lines[1]);
   let arr = [];
-  for (let i = 2; i < lines.length; i++) {
+  for (let i = 1; i < lines.length; i++) {
     arr.push(Number(lines[i]));
   }
+  // console.log(arr);
 
   for (let i = arr.length - 1; i >= 0; i--) {
     for (let j = 0; j < i; j++) {
@@ -34,17 +33,17 @@ function solve(lines) {
       }
     }
   }
+  // console.log(arr);
 
-  if (max === 0 || total === 0) {
-    console.log(0);
-  } else {
-    if (max > total) {
-      max = total;
-    }
-    let result = 0;
-    for (let i = arr.length - 1; i >= arr.length - max; i--) {
-      result += arr[i];
-    }
-    console.log(result);
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
   }
 }
+
+// 5 4 3 2 1
+
+// Round 1
+// 4 5 3 2 1
+// 4 3 5 2 1
+// 4 3 2 5 1
+// 4 3 2 1 5

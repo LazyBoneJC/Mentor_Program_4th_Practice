@@ -10,6 +10,7 @@
 
 // 用原生套件寫一個陽春版的 request 套件
 const https = require("https");
+
 function request(url, callback) {
   sendRequest(url, { method: "GET" }, callback);
 }
@@ -101,7 +102,7 @@ function readBook(id) {
 }
 
 function deleteBook(id) {
-  request(`${API_ENDPOINT}/books/${id}`, (err, res, body) => {
+  request.delete(`${API_ENDPOINT}/books/${id}`, (err, res, body) => {
     if (err) {
       return console.log("刪除失敗", err);
     }
@@ -110,17 +111,21 @@ function deleteBook(id) {
 }
 
 function createBook(name) {
-  request({ url: `${API_ENDPOINT}/books`, form: { name } }, (err, res) => {
-    if (err) {
-      return console.log("新增失敗", err);
+  request.post(
+    { url: `${API_ENDPOINT}/books`, form: { name: name } },
+    (err, res, body) => {
+      if (err) {
+        return console.log("新增失敗", err);
+      }
+      console.log(body);
+      console.log("新增成功！");
     }
-    console.log("新增成功！");
-  });
+  );
 }
 
 function updateBook(id, name) {
-  request(
-    { url: `${API_ENDPOINT}/books/${id}`, form: { name } },
+  request.patch(
+    { url: `${API_ENDPOINT}/books/${id}`, form: { name: name } },
     (err, res) => {
       if (err) {
         return console.log("更新失敗", err);

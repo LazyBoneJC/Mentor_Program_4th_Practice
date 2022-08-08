@@ -1,78 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <img
-      src="https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/e08da34488b114bd4c665ba2fa520a31.svg"
-      alt="I am an image"
-      title="juejin.cn logo"
-    />
-    <h1>網頁前端</h1>
-    <div class="lv1">
-      <h2>HTML</h2>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
-      <a href="https://google.com" target="_blank">take me to google</a>
-      <br /><br />
-      <form action="">
-        <div>帳號：<input type="text" /></div>
-        <div>密碼：<input type="password" /></div>
-        <div>Email：<input type="email" /></div>
-        <div>日期：<input type="date" /></div>
-        <div>
-          生理性別：
-          <input type="radio" name="gender" id="male" />
-          <label for="male">男性</label>
-          <input type="radio" name="gender" id="female" />
-          <label for="female">女性</label>
-          <input type="radio" name="gender" id="other" />
-          <label for="other">其他</label>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="post">
+    <div class="post__option">...</div>
+    
+    <div class="post__top">
+      <div class="post__header">
+        <div class="post__avatar"></div>
+        <div class="post__info">
+          <div class="post__author">Lidemy 鋰學院</div>
+          <div class="post__timestamp">8月8日下午16:05</div>
         </div>
-        <div>
-          興趣：
-          <input type="checkbox" name="interests" id="sports" />
-          <label for="sports">運動</label>
-          <input type="checkbox" name="interests" id="coding" />
-          <label for="coding">寫code</label>
-          <input type="checkbox" name="interests" id="eating" />
-          <label for="eating">吃美食</label>
-        </div>
-        <div><input type="submit" value="送出表單" /></div>
-      </form>
-      <ul>
-        <li>h1</li>
-        <li>h2</li>
-        <li>h3</li>
-      </ul>
-      <pre>
-        function hello() {
-          console.log("hello");
-        }
-      </pre>
+      </div>
+
+      <div class="post__content"><!--
+     -->程式導師實驗計畫第五期在前陣子結束了
+        這是我自己第五期的心得以及相關數據
+        如同之前粉專提過的，短期內不會有第六期
+        但依然期待休息過後能以嶄新的面貌再次跟大家相見
+      </div>
     </div>
-    <div>
-      <h2>CSS</h2>
-      <iframe
-        src="http://blog.huli.tw"
-        frameborder="0"
-        width="100%"
-        height="500px"
-      ></iframe>
+
+    <div class="post__preview">
+      <div class="post__thumbnail"></div>
+      <div class="post__preview-info">
+        <div class="post__preview-domain">MEDIUM.COM</div>
+        <div class="post__preview-title">程式導師實驗計畫第五期結業心得 - Huli - Medium</div>
+      </div>
     </div>
-    <table>
-      <tr>
-        <th>姓名</th>
-        <th>國文</th>
-        <th>英文</th>
-      </tr>
-      <tr>
-        <td>小華</td>
-        <td>90</td>
-        <td>86</td>
-      </tr>
-    </table>
-  </body>
+
+  </div>
+</body>
 </html>

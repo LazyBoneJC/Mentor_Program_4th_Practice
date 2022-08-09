@@ -1,19 +1,63 @@
-#box1 {
-  background-color: red;
-  height: 0px;
-  width: 0px;
-  border-top: 50px solid green;
-  border-bottom: 50px solid yellow;
-  border-left: 50px solid pink;
-  border-right: 50px solid navy;
+.post {
+    width: 400px;
+    border: 2px solid grey;
+    /* potition:absolute 根據此區塊做定位 */
+    position: relative;
 }
 
-#box2 {
-  background-color: transparent;
-  height: 0px;
-  width: 0px;
-  border-top: 50px solid green;
-  border-bottom: 50px solid transparent;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
+.post__top {
+    padding: 10px;
+}
+
+.post__header {
+    /* 須注意: align-items 只能用在 flex box 的元素上 */
+    display: flex;
+    align-items: center;
+}
+
+.post__avatar {
+    background-color: red;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.post__timestamp:after {
+    content: '';
+    height: 10px;
+    width: 10px;
+    background-color: blue;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.post__option {
+    /* 會往上層找position不是static的做定位 */
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.post__content {
+    white-space: pre-line;
+    margin-top: 10px;
+}
+
+.post__thumbnail {
+    height: 150px;
+    background-color: orange;
+}
+
+.post__preview-info {
+    padding: 10px;
+    background-color: lightgrey;
+}
+
+.post__preview-domain {
+    font-size: 10px;
+}
+
+.post__preview-title {
+    font-weight: bold;
 }

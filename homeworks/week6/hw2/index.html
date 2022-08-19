@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top__bar"></div>
+    <div class="form">
+        <div class="form__header">
+            <h1>新拖延運動報名表單</h1>
+        </div>
+        <div class="form__info">
+            <div class="firm__info-time">活動日期：2022/12/10 ~ 2022/12/11</div>
+            <div class="form__info-location">活動地點：台北市大安區新生南路二段 1 號</div>
+        </div>
+        <div class="form__warning">
+            <span class="red-star">* 必填</span>
+        </div>
+        <div class="form__name">
+            <div class="form__name-title">
+                暱稱<span class="red-star"> *</span>
+            </div>
+            <div class="form__name-input">
+                <input type="text" placeholder="您的暱稱" required>
+            </div>
+        </div>
+        <div class="form__email">
+            <div class="form__email-title">
+                電子郵件<span class="red-star"> *</span>
+            </div>
+            <div class="form__email-input">
+                <input type="text" placeholder="您的電子郵件" required>
+            </div>
+        </div>
+        <div class="form__phone">
+            <div class="form__phone-title">
+                手機號碼<span class="red-star"> *</span>
+            </div>
+            <div class="form__phone-input">
+                <input type="text" placeholder="您的手機號碼" required>
+            </div>
+        </div>
+        <div class="form__kind">
+            <div class="form__kind-title">
+                報名類型<span class="red-star"> *</span>
+            </div>
+            <form>
+                <input type="radio" id="imagination" name="activities" value="Imagination">
+                <label for="imagination">躺在床上想像力實作</label>
+                <br><br>
+                <input type="radio" id="scroll" name="activities" value="Scroll">
+                <label for="scroll">趴在地上滑手機找現成的</label>
+            </form>
+
+            <!-- <div class="form__kind-title">
+                報名類型<span class="red-star"> *</span>
+            </div>
+            <div class="form__kind-check-1">
+                <input type="radio" value="躺在床上想像力實作">
+            </div>
+            <div class="form__kind-check-2">
+                <input type="radio" value="趴在地上滑手機找現成的">
+            </div> -->
+        </div>
+        <div class="form__submit">
+            <input type="submit" value="提交表單">
+        </div>
+    </div>
+</body>
+</html>

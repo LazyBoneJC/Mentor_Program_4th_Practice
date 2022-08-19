@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: lightgray;
+}
+
+.top__bar {
+    z-index: 0;
+    background-color: orange;
+    height: 10px;
+    width: 50%;
+    margin: 40px auto 0 auto;
+    min-width: 505px;
+}
+
+.form {
+    z-index: 1;
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.2);
+    width: 50%;
+    margin: auto auto 50px auto;
+    padding: 30px 50px 50px 50px;
+    min-width: 505px;
+}
+
+.red-star {
+    color: red;
+    font-weight: bold;
+}
+
+.form__info {
+    margin-bottom: 15px;
+    line-height: 30px;
+}
+
+.form__warning {
+    margin-bottom: 30px;
+}
+
+.form__name {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.form__name-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.form__email {
+    margin-bottom: 30px;
+}
+
+.form__email-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.form__phone {
+    margin-bottom: 30px;
+}
+
+.form__phone-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.form__kind {
+    margin-bottom: 30px;
+}
+
+.form__kind-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* RWD Styles */
+
+@media screen and (max-width:1200px) {
+    .top__bar {
+        width: 65%;
+    }
+    .form {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .top__bar {
+        width: 70%;
+    }
+    .form {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .top__bar {
+        width: 75%;
+    }
+    .form {
+        width: 75%;
+    }
+}

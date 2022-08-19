@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
-
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>表單</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
       href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
     />
-
     <style>
       body {
         background: rgba(0, 0, 0, 0.3);
@@ -38,7 +36,7 @@
       }
 
       .apply-form__notice {
-        color: #e74149;
+        color: red;
         font-size: 16px;
         margin-top: 20px;
       }
@@ -73,17 +71,24 @@
 
       .required:after {
         content: "*";
-        color: #e74149;
+        color: red;
       }
 
       .apply-form__submit {
         background: #fad312;
         color: black;
         font-size: 15px;
+        font-weight: bold;
         padding: 12px 32px;
         margin-top: 48px;
         border: none;
         border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .apply-form__submit:hover {
+        transform: scale(1.05);
       }
 
       footer {
@@ -95,10 +100,9 @@
       }
     </style>
   </head>
-
   <body>
     <div class="wrapper">
-      <form class="apply-form">
+      <form action="" class="apply-form">
         <h1 class="apply-form__title">新拖延運動報名表單</h1>
         <p class="apply-form__desc">
           活動日期：2020/12/10 ~ 2020/12/11<br />
@@ -108,30 +112,30 @@
         <div class="input-block">
           <div class="input-block__title required">暱稱</div>
           <div class="input-block__input">
-            <input name="nickname" type="text" />
+            <input type="text" name="nickname" />
           </div>
         </div>
         <div class="input-block">
           <div class="input-block__title required">電子郵件</div>
           <div class="input-block__input">
-            <input name="email" type="text" />
+            <input type="text" name="email" />
           </div>
         </div>
         <div class="input-block">
           <div class="input-block__title required">手機號碼</div>
           <div class="input-block__input">
-            <input name="phone" type="text" />
+            <input type="text" name="phone" />
           </div>
         </div>
         <div class="input-block">
           <div class="input-block__title required">報名類型</div>
           <div class="input-block__input">
-            <label>
-              <input name="type" value="1" type="radio" /> 躺在床上用想像力實作
+            <label for="">
+              <input type="radio" name="type" value="1" /> 躺在床上用想像力實作
             </label>
 
-            <label>
-              <input name="type" value="2" type="radio" />
+            <label for="">
+              <input type="radio" name="type" value="2" />
               趴在地上滑手機找現成的
             </label>
           </div>
@@ -139,20 +143,20 @@
         <div class="input-block">
           <div class="input-block__title required">怎麼知道這個活動的？</div>
           <div class="input-block__input">
-            <input name="referal" type="text" />
+            <input type="text" name="referal" />
           </div>
         </div>
         <div class="input-block">
           <div class="input-block__title">其他</div>
           <div class="input-block__desc">對活動的一些建議</div>
           <div class="input-block__input">
-            <input name="nickname" type="text" />
+            <input type="text" name="advice" />
           </div>
         </div>
-        <input class="apply-form__submit" type="submit" />
+        <input type="submit" class="apply-form__submit" />
         <p class="apply-form__desc">請勿透過表單送出您的密碼。</p>
       </form>
     </div>
-    <footer>© 2020 © Copyright. All rights Reserved.</footer>
+    <footer>© 2022 © Copyright. All rights Reserved.</footer>
   </body>
 </html>

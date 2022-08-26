@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FE102 - 動態表單通訊錄</title>
+    <style>
+      body {
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="add-btn"><button>新增聯絡人</button></div>
+      <br />
+      <div class="contacts">
+        <div class="row">
+          姓名：<input type="text" name="name" /> 電話：<input
+            type="text"
+            name="phone"
+          />
+          <button class="delete">刪除</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.querySelector(".add-btn").addEventListener("click", function () {
+        const div = document.createElement("div");
+        div.classList.add("row");
+        div.innerHTML = `
+          姓名：<input type="text" name="name" />
+          電話：<input type="text" name="phone" />
+          <button class="delete">刪除</button>
+        `;
+        document.querySelector(".contacts").appendChild(div);
+      });
+
+      // Event Delegation 事件代理
+      // 用Element.closest 找到最近的 parent node 刪除
+      document
+        .querySelector(".contacts")
+        .addEventListener("click", function (e) {
+          if (e.target.classList.contains("delete")) {
+            document
+              .querySelector(".contacts")
+              .removeChild(e.target.closest(".row"));
+          }
+        });
+    </script>
+  </body>
+</html>

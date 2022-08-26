@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FE102 - Session Storage</title>
+    <style></style>
+  </head>
+  <body>
+    <div class="app">
+      <input class="text" type="text" />
+      <button class="storage-btn">儲存</button>
+    </div>
+    <script>
+      const oldValue = window.sessionStorage.getItem("text");
+      document.querySelector(".text").value = oldValue;
+
+      document
+        .querySelector(".storage-btn")
+        .addEventListener("click", function () {
+          const value = document.querySelector(".text").value;
+          window.sessionStorage.setItem("text", value);
+        });
+    </script>
+  </body>
+</html>

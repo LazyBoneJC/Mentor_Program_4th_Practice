@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FE102 - 簡易密碼產生器</title>
+    <style>
+      label,
+      button {
+        font-size: 20px;
+      }
+      .result {
+        font-size: 20px;
+        background: rgba(0, 0, 0, 0.5);
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <input
+        type="checkbox"
+        name="en"
+        id="en"
+        data-char="abcdefghijklmnopqrstuvwxyz"
+      />
+      <label for="en">英文</label>
+    </div>
+    <div>
+      <input type="checkbox" name="num" id="num" data-char="0123456789" />
+      <label for="num">數字</label>
+    </div>
+    <div>
+      <input type="checkbox" name="sp" id="sp" data-char="~!@#$%&*" />
+      <label for="sp">特殊字元</label>
+    </div>
+    <div>
+      <button class="btn-generate">產生</button>
+    </div>
+    <div class="result">【 Password Generator 】</div>
+    <script>
+      // [Solution 3]
+      document
+        .querySelector(".btn-generate")
+        .addEventListener("click", function () {
+          let availableChar = "";
+
+          const elements = document.querySelectorAll("input[type=checkbox]");
+          for (let i = 0; i < elements.length; i++) {
+            if (elements[i].checked) {
+              availableChar += elements[i].getAttribute("data-char");
+            }
+          }
+
+          // [Solution 2]
+          // function getChar(name, char) {
+          //   if (document.querySelector("input[name=" + name + "]").checked) {
+          //     return char;
+          //   }
+          //   return "";
+          // }
+          // availableChar += getChar("en", "abcdefghijklmnopqrstuvwxyz");
+          // availableChar += getChar("num", "0123456789");
+          // availableChar += getChar("sp", "~!@#$%&*");
+
+          // [Solution 1]
+          // if (document.querySelector("input[name='en']").checked) {
+          //   availableChar += "abcdefghijklmnopqrstuvwxyz";
+          // }
+          // if (document.querySelector("input[name='num']").checked) {
+          //   availableChar += "0123456789";
+          // }
+          // if (document.querySelector("input[name='sp']").checked) {
+          //   availableChar += "~!@#$%&*+";
+          // }
+
+          let result = "";
+          for (let i = 0; i < 10; i++) {
+            const number = Math.floor(Math.random() * availableChar.length);
+            result += availableChar[number];
+          }
+
+          console.log(availableChar);
+          if (availableChar === "") {
+            alert("請至少勾選一個項目！");
+          } else {
+            document.querySelector(".result").innerText = result;
+          }
+        });
+    </script>
+  </body>
+</html>

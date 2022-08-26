@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FE102</title>
+    <style></style>
+  </head>
+  <body>
+    <div class="outer">
+      <button class="add-btn">add</button>
+      <button class="btn" data-value="1">1</button>
+      <button class="btn" data-value="2">2</button>
+    </div>
+    <script>
+      let num = 3;
+
+      document
+        .querySelector(".add-btn")
+        .addEventListener("click", function (e) {
+          const btn = document.createElement("button");
+          btn.classList.add("btn");
+          btn.setAttribute("data-value", num);
+          btn.innerText = num;
+          num++;
+          document.querySelector(".outer").appendChild(btn);
+        });
+
+      // Event Delegation 事件代理
+      document.querySelector(".outer").addEventListener("click", function (e) {
+        if (e.target.classList.contains("btn")) {
+          alert(e.target.getAttribute("data-value"));
+        }
+      });
+    </script>
+  </body>
+</html>

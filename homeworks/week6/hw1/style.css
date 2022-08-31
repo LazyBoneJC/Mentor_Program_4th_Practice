@@ -9,6 +9,7 @@ body {
 }
 
 .navbar {
+    z-index: 3;
     background-color: lightgray;
     position: sticky;
     top: 0;
@@ -74,7 +75,7 @@ body {
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    font-size: 50px;
+    font-size: 38px;
     color: white;
     background-image: url(./pics/arabica_2.jpg);
     background-size: cover;
@@ -83,6 +84,21 @@ body {
     /* margin-left: 15px;
     margin-right: 15px; */
     margin: auto 15px;
+    position: relative;
+}
+
+.body__header::after {
+    content: "";
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.body__header h1 {
+    z-index: 2;
 }
 
 .body__info-title {
@@ -129,6 +145,11 @@ body {
     text-align: center;
     margin: 5px;
     cursor: pointer;
+    transition: all 0.3s;
+}
+
+.body__button-order:hover {
+    transform: scale(1.1);
 }
 
 .body__button-check {
@@ -144,6 +165,12 @@ body {
     text-align: center;
     margin: 5px;
     cursor: pointer;
+    margin-left: 16px;
+    transition: all 0.3s;
+}
+
+.body__button-check:hover {
+    transform: scale(1.1);
 }
 
 .body__menu-title {
@@ -165,7 +192,7 @@ body {
     background-repeat: no-repeat;
     background-position: 5%, 23%, 50%, 77%, 95%;
     background-size: contain;
-    height: 400px;
+    height: 500px;
     margin-left: 15px;
     margin-right: 15px;
 }

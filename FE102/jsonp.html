@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSONP - example</title>
+  </head>
+  <body>
+    <script>
+      // JSONP 方法 -> 透過 script 標籤不受同源限制的特性，來獲取外部資料
+      // 在這之前就先宣告一個 function，就能夠取得 user.js 的資料
+      function setData(users) {
+        console.log(users);
+      }
+    </script>
+    <script src="https://test.com/user.js"></script>
+    <!-- 
+      假設 https://test.com/user.js 的資料如下
+      一個 func 裡面夾帶真正要傳的資料
+      setData([
+        {
+          id: 1,
+          name: tom
+        }, {
+          id: 2,
+          name: ...
+        }
+      ])
+     -->
+  </body>
+</html>

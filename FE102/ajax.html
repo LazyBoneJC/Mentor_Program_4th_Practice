@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX-Request</title>
+    <style>
+      body {
+        font-size: 38px;
+      }
+
+      .profile {
+        border: 1px solid #333;
+        display: inline-flex;
+        align-items: center;
+        margin-top: 20px;
+        margin-right: 10px;
+      }
+
+      .profile__name {
+        margin: 0 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <!-- <div class="profile">
+        <div class="profile__name">George Bluth</div>
+        <img
+          src="https://reqres.in/img/faces/1-image.jpg"
+          alt=""
+          class="profile__img"
+        />
+      </div> -->
+    </div>
+    <script>
+      // 產生出一個 XMLHttpRequest 的感覺
+      const request = new XMLHttpRequest();
+      const container = document.querySelector(".app");
+
+      // 其實很類似 addEventListener (加到 onload)
+      // 當 request 拿到結果就會觸發 onload 事件，接著就會執行 function
+      request.onload = function () {
+        // 若 status 且於 200~400 代表成功
+        if (request.status >= 200 && request.status < 400) {
+          const response = request.responseText;
+          const json = JSON.parse(response);
+          const users = json.data;
+
+          for (let i = 0; i < users.length; i++) {
+            const div = document.createElement("div");
+            div.classList.add("profile");
+            div.innerHTML = `
+            <div class="profile__name">${users[i].first_name} ${users[i].last_name}</div>
+            <img
+              src="${users[i].avatar}"
+              alt=""
+              class="profile__img"
+            />
+          `;
+            container.appendChild(div);
+          }
+        } else {
+          console.log("err");
+        }
+      };
+
+      request.onerror = function () {
+        console.log("error");
+      };
+
+      // open() -> 要發 request 到某個地方
+      // (request method, 網址, 是否使用非同步 Asynchronous)
+      // 等待 response 必然要用非同步的, 否則 JS 會一直等待, 網頁會卡住
+      request.open("GET", "https://reqres.in/api/users", true);
+      request.send(); // send() 之後 request 才會真正發出
+    </script>
+  </body>
+</html>

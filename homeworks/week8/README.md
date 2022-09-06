@@ -63,17 +63,18 @@ API 會按照機率回傳不同的獎項名稱，請你針對不同的獎項名�
 <details>
   <summary>提示 #1</summary>
 
-  [Twitch API](https://dev.twitch.tv/docs/v5/) 裡面有一個 API 可以拿到 Live Streams 的資料，API 的描述是「Gets a list of live streams.」，看到這行就代表你找對 API 了。
+[Twitch API](https://dev.twitch.tv/docs/v5/) 裡面有一個 API 可以拿到 Live Streams 的資料，API 的描述是「Gets a list of live streams.」，看到這行就代表你找對 API 了。
+
 </details>
 
 <details>
   <summary>提示 #2</summary>
 
-  API 要帶的參數有一個 `game` 的欄位，請帶遊戲名稱，還有要記得帶 limit 這個參數
+API 要帶的參數有一個 `game` 的欄位，請帶遊戲名稱，還有要記得帶 limit 這個參數
+
 </details>
 
 附註：Twitch API 有兩個版本，v5 是舊版，這個作業跟第四週一樣，用的會是**舊版**，請特別留意
-
 
 ## 進階挑戰題
 

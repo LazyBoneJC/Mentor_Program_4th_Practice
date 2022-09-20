@@ -36,11 +36,11 @@ function getTopGames() {
 
             document.querySelector(".live-section").innerHTML = "";
             document.querySelector(".live-section").innerHTML = `
-          <p class="game-title">${display_game_name}</p>
-          <p class="live-desc">
-            Top 20 popular live streams sorted by current viewers
-          </p>
-          `;
+            <p class="game-title">${display_game_name}</p>
+            <p class="live-desc">
+              Top 20 popular live streams sorted by current viewers
+            </p>
+            `;
             getStreams(game_id);
           });
       }

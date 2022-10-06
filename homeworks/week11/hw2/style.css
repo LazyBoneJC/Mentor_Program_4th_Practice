@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: lightblue;
+}
+
+.navbar-wrapper {
+  max-width: 85%;
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.navbar__blog-name {
+  font-size: 30px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.navbar__list {
+  list-style: none;
+  display: flex;
+}
+
+.navbar__list-block-1 {
+  display: flex;
+}
+
+.navbar__list-block-2 {
+  display: flex;
+  position: absolute;
+  right: 0;
+}
+
+.navbar__list-item {
+  margin: 0 10px;
+}
+
+.banner {
+  background-color: black;
+  color: white;
+  height: 300px;
+}

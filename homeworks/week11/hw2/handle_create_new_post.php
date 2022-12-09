@@ -38,5 +38,5 @@ try {
 }
 
 header("Location: admin.php");
-exit();
+exit(); // end this program
 ?>

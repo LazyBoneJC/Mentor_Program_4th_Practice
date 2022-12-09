@@ -28,8 +28,9 @@ if ($userRole == 2) {
   }
 } else {
   header("Location: index.php?errCode=2");
+  exit();
 }
 
-
 header("Location: admin_panel.php");
+exit();
 ?>

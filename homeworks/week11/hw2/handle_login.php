@@ -32,6 +32,7 @@ $row = $result->fetch_assoc();
 if($password == $row['password']) {
   $_SESSION['username'] = $username;
   header("Location: index.php");
+  exit();
 } else {
   header("Location: login.php?errCode=2");
   die("帳號或密碼錯誤！");

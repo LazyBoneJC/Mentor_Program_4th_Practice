@@ -34,7 +34,9 @@ try {
 
 if($user['role'] == 2) {
   header("Location: admin.php");
+  exit();
 } else {
   header("Location: index.php");
+  exit();
 }
 ?>

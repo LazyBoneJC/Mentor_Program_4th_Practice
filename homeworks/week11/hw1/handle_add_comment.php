@@ -46,5 +46,5 @@ if ($userRole == 1 || $userRole == 2) {
 }
 
 header("Location: index.php");
+exit();
 ?>
-<a href="index.php">Go back</a>

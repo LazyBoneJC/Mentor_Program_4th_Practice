@@ -43,6 +43,7 @@ if ($username) {
 // 如果使用者身份不是 admin，就跳轉回首頁，不能進到後台管理系統
 if ($userRole != 2) {
 	header("Location: index.php?errCode=2");
+	exit();
 }
 ?>
 

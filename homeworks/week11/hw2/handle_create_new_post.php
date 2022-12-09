@@ -38,4 +38,5 @@ try {
 }
 
 header("Location: admin.php");
+exit();
 ?>

@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  background-color: white;
+}
+
+.navbar-wrapper {
+  max-width: 75%;
+  height: 80px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.navbar__blog-name a{
+  text-decoration: none;
+  color: #333333;
+  font-size: 30px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.navbar__list {
+  list-style: none;
+  display: flex;
+}
+
+.navbar__list a {
+  text-decoration: none;
+  color: gray;
+}
+
+.navbar__list-block-1 {
+  display: flex;
+}
+
+.navbar__list-block-2 {
+  display: flex;
+  position: absolute;
+  right: 0;
+}
+
+.navbar__list-item {
+  margin: 0 10px;
+}
+
+.banner {
+  background-color: black;
+  /* background-image: linear-gradient(to 目標方向, 起始色彩, 結束色彩); */
+  background-image: linear-gradient(to top, #000000, #434343);
+  color: white;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner div {
+  text-align: center;
+}
+
+.banner__info-title {
+  font-size: 30px;
+}
+
+.container {
+  max-width: 55%;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -30px;
+  margin-bottom: 50px;
+  background-color: white;
+}
+
+.post {
+  border: 1px solid gray;
+  padding: 30px;
+}
+
+.post__title {
+  display: flex;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.btn-edit {
+  position: absolute;
+  right: 5px;
+  color: gray;
+  text-decoration: none;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 2px 7px;
+}
+
+.post__time {
+  max-width: 97%;
+  background-color: lightgray;
+  margin: 20px 0;
+  padding: 10px;
+}
+
+.post__content {
+  font-size: 17px;
+  word-break: break-all;
+}
+
+.btn-read-more {
+  display: inline-block;
+  text-decoration: none;
+  color: gray;
+  border: 1px solid gray;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+footer {
+  color: white;
+  background-color: black;
+  text-align: center;
+  padding: 15px;
+}

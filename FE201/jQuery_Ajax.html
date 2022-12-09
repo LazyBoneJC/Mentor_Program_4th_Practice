@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery_Ajax</title>
+    <script src="https://code.jquery.com/jquery-3.6.1.js"></script>
+  </head>
+  <body>
+    <span>Country name: </span>
+    <input type="text" name="country-name" />
+    <button class="btn">Submit</button>
+    <div class="list"></div>
+
+    <script>
+      const API_ENDPOINT = "https://restcountries.com/v3.1/name/";
+
+      $(".btn").click(() => {
+        const value = $("input[name=country-name]").val();
+        if (value === "") {
+          alert("請輸入國家名稱！");
+          return;
+        }
+
+        $('.list').empty();
+
+        $.ajax({
+          method: "GET",
+          url: API_ENDPOINT + value,
+          success: (countries) => {
+            console.log(countries);
+            for (let country of countries) {
+              $(".list").append(
+                `<div>${country.altSpellings[0]} | ${country.altSpellings[1]} | ${country.altSpellings[3]}</div>`
+              );
+            }
+          },
+          error: (err) => console.log("error:", err),
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+$grey-01: rgba(0, 0, 0, 0.3);
+$error-01: #e74149;
+
+$font-size-title: 36px;
+$font-size-normal: 16px;
+$font-size-small: 14px;
+$font-size-input-title: 20px;
+
+body {
+  background: $grey-01;
+}
+
+.wrapper {
+  max-width: 645px;
+  background: white;
+  margin: 10% auto;
+  box-shadow: 1.8px 2.4px 5px 0 $grey-01;
+  border-top: solid 8px #fad312;
+  padding: 64px 32px;
+}
+
+.apply-form {
+  &__title {
+    margin: 0;
+    font-size: $font-size-title;
+    font-weight: bold;
+  }
+
+  &__desc {
+    margin-top: 32px;
+    font-size: $font-size-small;
+    line-height: 1.5em;
+  }
+
+  &__notice {
+    color: $error-01;
+    font-size: $font-size-normal;
+    margin-top: 20px;
+  }
+
+  &__submit {
+    background: #fad312;
+    color: black;
+    font-size: $font-size-normal;
+    font-weight: bold;
+    padding: 12px 32px;
+    margin-top: 48px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.input-block {
+  margin-top: 55px;
+
+  &__title {
+    font-size: $font-size-input-title;
+  }
+
+  &__desc {
+    font-size: $font-size-small;
+    margin-top: 8px;
+  }
+
+  &__error {
+    margin-top: 4px;
+    color: $error-01;
+    position: absolute;
+  }
+
+  &__input {
+    margin-top: 20px;
+
+    & input[type="text"] {
+      border: solid 1px #d0d0d0;
+      font-size: $font-size-normal;
+      padding: 8px;
+    }
+
+    & label {
+      display: block;
+      margin-top: 12px;
+    }
+  }
+}
+
+.required .input-block__title::after {
+  content: "*";
+  color: $error-01;
+}
+
+footer {
+  background: black;
+  color: #999999;
+  font-size: 13px;
+  text-align: center;
+  padding: 24px 12px;
+}
+
+.hide-error .input-block__error {
+  visibility: hidden;
+}

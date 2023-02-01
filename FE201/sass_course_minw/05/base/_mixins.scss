@@ -1,0 +1,14 @@
+@mixin absCenter($top: 50%) {
+  position: absolute;
+  top: $top;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// 頭像
+@mixin createCircle($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  overflow: hidden;
+}

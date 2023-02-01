@@ -1,0 +1,10 @@
+$color: lightyellow;
+
+body {
+  background-color: $color;
+
+  .btn {
+    padding: 30px;
+    border-radius: 5px;
+  }
+}

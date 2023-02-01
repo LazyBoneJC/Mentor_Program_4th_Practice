@@ -9,12 +9,12 @@ include:
 * 如果遇到錯誤，會出現 warning message，但程式依然會繼續往下執行。
 * 若主程式使用 include 來引入檔案，主程式呼叫一次include()，就會立即引入一次，主程式呼叫 100 次，該檔案就會被引入100 次，
 
-require: 
+require:
 
 * If error, require will produce a fatal error, and stop the script.
 * 將檔案引入主要程式碼內，也就是說引入的檔案為主程式的一部分。
 
-include_once, require_once: 
+include_once, require_once:
 
 * 功用跟上面兩個大同小異，差別在 Include_once 和 require_once 只會引入檔案一次，可以避免重複引入造成變數重複宣告的問題。
 
@@ -24,7 +24,7 @@ include_once, require_once:
 
 攻擊原理：把原本的 sql query 截斷，注入惡意的 sql query, 變成一個截然不同的意思。
 
-防範方法：使用 prepare statement
+防範方法：使用 prepared statement
 
 ## 請說明 XSS 的攻擊原理以及防範方法
 

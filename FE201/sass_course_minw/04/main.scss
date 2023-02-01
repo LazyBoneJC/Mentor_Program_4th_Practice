@@ -1,0 +1,32 @@
+// $direction-type: center, start, end; // list
+$direction-type: (
+  center: center,
+  start: flex-start,
+  end: flex-end,
+); // object
+
+// @each $type in $direction-type {
+//   .flex-#{$type} {
+//     display: flex;
+//     justify-content: $type;
+//     align-items: center;
+//   }
+// }
+
+@each $type, $value in $direction-type {
+  .flex-#{$type} {
+    display: flex;
+    justify-content: $value;
+    align-items: center;
+  }
+}
+
+@for $i from 0 through 5 {
+  .h#{5 - $i + 1} {
+    @if calc($i / 2) == 0 {
+      font-size: 1 + 0.2rem * $i;
+    } @else {
+      font-size: 1 + 0.3rem * $i;
+    }
+  }
+}

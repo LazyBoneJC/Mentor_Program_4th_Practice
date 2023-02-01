@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch-Practice</title>
+  </head>
+  <body>
+    <script>
+      const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+      function getData() {
+        const api200 =
+          "https://run.mocky.io/v3/57c09a1b-cad7-46ad-a487-d14651f6a1c7";
+        // fetch 會 return 一個 Promise obj
+        return fetch(api200).then((response) => {
+          return response.json();
+        });
+      }
+
+      // getData() 會回傳一個 Promise
+      // getData().then((data) => {
+      //   console.log(data);
+      // });
+
+      async function main() {
+        console.log("Enter main.");
+        try {
+          const result = await getData();
+        } catch (error) {
+          console.log("Error: ", error);
+        }
+        console.log("Result: ", result);
+      }
+
+      main();
+    </script>
+  </body>
+</html>

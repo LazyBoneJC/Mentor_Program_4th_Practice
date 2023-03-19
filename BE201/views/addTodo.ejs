@@ -1,0 +1,15 @@
+<h1>Add Todo</h1>
+<% if (isLogin) { %>
+  <h2>Current status: Login</h2>
+  <a href="/logout">Logout</a>
+<% } else { %>
+  <h2>Current status: Visitor</h2>
+  <a href="/login">Login</a>
+<% } %>
+
+<form method="post" action="/todos">
+  Pressure: <input type="number" name="pressure"><br>
+  Temperature: <input type="number" name="temperature"><br>
+  Timestamp: <input type="text" name="timestamp"><br>
+  <input type="submit">
+</form>

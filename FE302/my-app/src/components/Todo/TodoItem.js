@@ -1,5 +1,7 @@
 import styled from "styled-components";
-import { MEDIA_QUERY_MD, MEDIA_QUERY_LG } from "./constants/style";
+import { MEDIA_QUERY_MD, MEDIA_QUERY_LG } from "../../constants/style";
+import React from "react";
+import PropTypes from "prop-types";
 
 const TodoItemWrapper = styled.div`
   display: flex;
@@ -19,7 +21,8 @@ const TodoContent = styled.div`
   font-size: 15px;
   font-weight: bold;
 
-  ${(props) => props.size === "XL" && `font-size: 20px;`}
+  ${(props) => props.size === "XL" && `font-size: 20px;`};
+  ${(props) => props.$isDone && `text-decoration: line-through;`};
 `;
 
 const TodoButtonWrapper = styled.div``;
@@ -54,13 +57,30 @@ const DeleteButton = styled(Button)`
   }
 `;
 
+// function component
 // React component 裡面使用 styled-component
-export default function TodoItem({ className, size, todo, handleDeleteTodo }) {
+export default function TodoItem({
+  className,
+  size,
+  todo,
+  handleDeleteTodo,
+  handleToggleIsDone,
+}) {
   return (
     <TodoItemWrapper className={className} data-todo-id={todo.id}>
-      <TodoContent size={size}>{todo.content}</TodoContent>
+      <TodoContent $isDone={todo.isDone} size={size}>
+        {todo.content}
+      </TodoContent>
       <TodoButtonWrapper>
-        <Button>已完成</Button>
+        <Button
+          onClick={() => {
+            handleToggleIsDone(todo.id);
+          }}
+        >
+          {todo.isDone ? "未完成" : "已完成"}
+          {/* {todo.isDone && "未完成"}
+          {!todo.isDone && "已完成"} */}
+        </Button>
         <DeleteButton
           onClick={() => {
             handleDeleteTodo(todo.id);
@@ -72,3 +92,15 @@ export default function TodoItem({ className, size, todo, handleDeleteTodo }) {
     </TodoItemWrapper>
   );
 }
+
+TodoItem.propTypes = {
+  className: PropTypes.string,
+  size: PropTypes.string,
+  todo: PropTypes.shape({
+    id: PropTypes.number,
+    content: PropTypes.string,
+    isDone: PropTypes.bool,
+  }),
+  handleDeleteTodo: PropTypes.func,
+  handleToggleIsDone: PropTypes.func,
+};

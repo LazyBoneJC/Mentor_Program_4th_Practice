@@ -82,6 +82,9 @@ export default function Header() {
           <Nav to="/" $active={location.pathname === "/"}>
             首頁
           </Nav>
+          <Nav to="/about" $active={location.pathname === "/about"}>
+            About
+          </Nav>
           {user && (
             <Nav to="/new-post" $active={location.pathname === "/new-post"}>
               發布文章
@@ -90,6 +93,11 @@ export default function Header() {
         </NavbarList>
       </LeftContainer>
       <NavbarList>
+        {!user && (
+          <Nav to="/register" $active={location.pathname === "/register"}>
+            註冊
+          </Nav>
+        )}
         {!user && (
           <Nav to="/login" $active={location.pathname === "/login"}>
             登入

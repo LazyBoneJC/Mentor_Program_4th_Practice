@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import styled from "styled-components";
-import { login, getMe } from "../../WebAPI";
+import { register, getMe } from "../../WebAPI";
 import { setAuthToken } from "../../utils";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context";
@@ -63,8 +63,9 @@ const Loading = styled.div`
   justify-content: center;
 `;
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const { setUser } = useContext(AuthContext);
+  const [nickname, setNickname] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -74,23 +75,37 @@ export default function LoginPage() {
   const handleSubmit = (e) => {
     setErrorMessage(null);
     e.preventDefault();
-
     if (isLoading) return;
 
+    const regexp = /^[0-9a-zA-Z_]+$/;
+    if (nickname === "" || username === "" || password === "") {
+      return setErrorMessage("請輸入完整資訊");
+    }
+    if (
+      !regexp.test(nickname) ||
+      !regexp.test(username) ||
+      !regexp.test(password)
+    ) {
+      return setErrorMessage("請輸入合法字元");
+    }
+
     setIsLoading(true);
-    login(username, password).then((data) => {
+    register(nickname, username, password).then((data) => {
       setIsLoading(false);
       if (data.ok === 0) {
+        console.log(data);
         return setErrorMessage(data.message);
       }
       setAuthToken(data.token);
 
       getMe().then((response) => {
         if (response.ok !== 1) {
-          setAuthToken(""); // getMe失敗，代表登入失敗，清空 token
+          setAuthToken(""); // getMe失敗，代表註冊失敗，清空 token
           return setErrorMessage(response.message);
         }
+        console.log(response.data);
         setUser(response.data);
+        setNickname("");
         setUsername("");
         setPassword("");
         navigate("/");
@@ -101,7 +116,15 @@ export default function LoginPage() {
   return (
     <Form onSubmit={handleSubmit}>
       {isLoading && <Loading>Loading...</Loading>}
-      <FormTitle>Login</FormTitle>
+      <FormTitle>Create new account.</FormTitle>
+      <InputContainer>
+        nickname:{" "}
+        <input
+          type="text"
+          value={nickname}
+          onChange={(e) => setNickname(e.target.value)}
+        />
+      </InputContainer>
       <InputContainer>
         username:{" "}
         <input

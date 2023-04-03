@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 import { getMe, postContent } from "../../WebAPI";
 import { setAuthToken } from "../../utils";
@@ -9,7 +9,7 @@ const Form = styled.form`
   border-radius: 5px;
   width: 40%;
   margin: 20px auto;
-  padding: 20px;
+  padding: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,7 +68,7 @@ const Loading = styled.div`
   justify-content: center;
 `;
 
-export default function LoginPage() {
+export default function NewPostPage() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [errorMessage, setErrorMessage] = useState(null);
@@ -100,9 +100,9 @@ export default function LoginPage() {
     });
   };
 
-  const handleTextareaFocus = () => {
+  const handleTextareaFocus = useCallback(() => {
     setErrorMessage(null);
-  };
+  }, []);
 
   return (
     <Form onSubmit={handleSubmit}>

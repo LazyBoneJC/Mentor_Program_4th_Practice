@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-
+import Paginator from "../../components/Paginator";
 import { Link } from "react-router-dom";
-import { getPosts } from "../../WebAPI";
+import { getPosts, getPaginatePosts } from "../../WebAPI";
 
 const Root = styled.div`
   width: 80%;
@@ -50,16 +50,35 @@ Post.propTypes = {
 
 export default function HomePage() {
   const [posts, setPosts] = useState([]);
+  const [totalPosts, setTotalPosts] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
+  const limit = 15;
 
   useEffect(() => {
-    getPosts().then((posts) => setPosts(posts));
-  }, [posts]);
+    getPaginatePosts(currentPage, limit).then((posts) => setPosts(posts));
+  }, [currentPage]);
+
+  // get content data's length
+  useEffect(() => {
+    getPosts().then((totalPosts) => {
+      console.log("Total posts:", totalPosts.length);
+      return setTotalPosts(totalPosts.length);
+    });
+  }, [totalPosts]);
 
   return (
     <Root>
       {posts.map((post) => {
         return <Post key={post.id} post={post} />;
       })}
+      <Paginator
+        currentPage={currentPage}
+        total={totalPosts}
+        limit={limit}
+        onPageChange={(page) => {
+          setCurrentPage(page);
+        }}
+      />
     </Root>
   );
 }

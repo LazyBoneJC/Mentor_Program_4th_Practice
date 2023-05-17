@@ -1,18 +1,18 @@
 ## 請列出 React 內建的所有 hook，並大概講解功能是什麼
 
-- useCallback - 協助在 re-render 之間 cache 住 function 的一個 hook，如果 useCallback 的 dependencies 沒有改變，就會回傳同一個 function，不會再宣告一個一樣的 function，效能自然會上升。
-- useContext - 當我們有一個 state 是希望所有 components 都能 access 到的，就會利用 useContext 把這個值傳下去。
+- **useCallback** - 協助在 re-render 之間 cache 住 function 的一個 hook，如果 useCallback 的 dependencies 沒有改變，就會回傳同一個 function，不會再宣告一個一樣的 function，效能自然會上升。
+- **useContext** - 當我們有一個 state 是希望所有 components 都能 access 到的，就會利用 useContext 把這個值傳下去。
 - useDebugValue - a React Hook that lets you add a label to a custom Hook in [React DevTools.](https://react.dev/learn/react-developer-tools)
 - useDefferedValue - 這個 hook 主要是用來在下一次 UI 更新完成前，先維持住之前的 UI 內容。
-- useEffect - 在 re-render、瀏覽器 paint 畫面後你想做什麼事？就寫在這個 hook 裡面。
+- **useEffect** - 在 re-render、瀏覽器 paint 畫面後你想做什麼事？就寫在這個 hook 裡面。
 - useId - 生成一個唯一的 ID。
 - useImperativeHandle - a React Hook that lets you customize the handle exposed as a [ref.](https://react.dev/learn/manipulating-the-dom-with-refs)
 - useInsertionEffect
 - useLayoutEffect - 在 re-render 後，paint 畫面前，你想做什麼事？寫在這個 hook 裡。
-- useMemo - 用來在 re-render 之間 cache 住特定 value，如果 depenedencies array 裡面的 element 沒有被改變，re-render 發生時這個 value 就會被保留。
+- **useMemo** - 用來在 re-render 之間 cache 住特定 value，如果 depenedencies array 裡面的 element 沒有被改變，re-render 發生時這個 value 就會被保留。
 - useReducer - 這個 hook 可以讓我們用類似 redux 用 reducer、action、dispatch 操作 state。
-- useRef - 改動到卻不會影響到畫面的值，可以用 useRef 來存。
-- useState - 記錄狀態（資料）的 hook。
+- **useRef** - 改動到卻不會影響到畫面的值，可以用 useRef 來存。
+- **useState** - 記錄狀態（資料）的 hook。
 
 ## 請列出 class component 的所有 lifecycle 的 method，並大概解釋觸發的時機點
 
